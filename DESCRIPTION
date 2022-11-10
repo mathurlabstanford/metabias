@@ -1,15 +1,21 @@
 Package: metabias
 Type: Package
-Title: Tools for analyzing within-study and across-study biases in meta analysis
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Title: Meta-analysis for within-study and/or across-study biases
+Description: Provides common components (classes, methods, documentation) for
+  packages that conduct meta-analytic corrections and sensitivity analyses
+  for within-study and/or across-study biases in meta-analysis. See the packages
+  `PublicationBias`, `phacking`, and `multibiasmeta`.
 Version: 0.0.1
 Authors@R: c(
   person("Mika", "Braginsky", email = "mika.br@gmail.com", role = c("aut", "cre")),
   person("Maya", "Mathur", email = "mmathur@stanford.edu", role = c("aut")))
 Maintainer: Mika Braginsky <mika.br@gmail.com>
 License: MIT + file LICENSE
+URL: https://github.com/mikabr/metabias
+BugReports: https://github.com/mikabr/metabias/issues
 Encoding: UTF-8
 LazyData: true
 Depends:
     R (>= 4.1.0)
+RoxygenNote: 7.2.0
+Roxygen: list(markdown = TRUE)
