@@ -12,6 +12,7 @@ Provides common components (classes, methods, documentation) for packages that c
 Useful links:
 \itemize{
   \item \url{https://github.com/mikabr/metabias}
+  \item \url{http://mikabr.io/metabias/}
   \item Report bugs at \url{https://github.com/mikabr/metabias/issues}
 }
 

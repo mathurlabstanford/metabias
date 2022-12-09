@@ -11,7 +11,8 @@ Authors@R: c(
   person("Maya", "Mathur", email = "mmathur@stanford.edu", role = c("aut")))
 Maintainer: Mika Braginsky <mika.br@gmail.com>
 License: MIT + file LICENSE
-URL: https://github.com/mikabr/metabias
+URL: https://github.com/mikabr/metabias,
+    http://mikabr.io/metabias/
 BugReports: https://github.com/mikabr/metabias/issues
 Encoding: UTF-8
 LazyData: true
