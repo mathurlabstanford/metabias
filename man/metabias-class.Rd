@@ -4,6 +4,7 @@
 \alias{metabias-class}
 \alias{metabias}
 \alias{print.metabias}
+\alias{summary.metabias}
 \title{metabias S3 class}
 \usage{
 metabias(
@@ -14,6 +15,8 @@ metabias(
 )
 
 \method{print}{metabias}(x, ...)
+
+\method{summary}{metabias}(object, ...)
 }
 \arguments{
 \item{data}{Dataframe containing data used to fit the model(s), with added
@@ -29,6 +32,8 @@ underlying fitting methods, e.g. \code{\link[robumeta:robu]{robumeta::robu}} or 
 \item{x}{Object of class \code{metabias}.}
 
 \item{...}{Not used.}
+
+\item{object}{Object of class \code{metabias}.}
 }
 \description{
 A object of class \code{metabias} is the result of fitting one or

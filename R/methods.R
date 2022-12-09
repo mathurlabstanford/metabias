@@ -10,13 +10,10 @@ print.metabias <- function(x, ...) {
 
 #' @rdname metabias-class
 #'
-#' @param x Object of class `metabias`.
+#' @param object Object of class `metabias`.
 #' @param ... Not used.
 #'
 #' @export
-# length.metabias <- function(x, ...) {
-#   list("observations" = nrow(x$data),
-#        "values" = length(x$values),
-#        "stats" = nrow(x$stats),
-#        "fits" = length(x$fits))
-# }
+summary.metabias <- function(object, ...) {
+  object$stats
+}
