@@ -17,6 +17,9 @@ BugReports: https://github.com/mikabr/metabias/issues
 Encoding: UTF-8
 LazyData: true
 Depends:
-    R (>= 4.1.0)
+  R (>= 4.1.0)
+Imports:
+  Rdpack
 RoxygenNote: 7.2.0
 Roxygen: list(markdown = TRUE)
+RdMacros: Rdpack
