@@ -1,32 +1,4 @@
 url: http://mikabr.io/metabias/
 template:
   bootstrap: 5
-  bootswatch: cosmo
-reference:
-  - title: metabias
-  - contents:
-    - metabias
-  - title: PublicationBias
-  - contents:
-    - PublicationBias::pubbias_meta
-    - PublicationBias::pubbias_svalue
-    - PublicationBias::pval_plot
-    - PublicationBias::significance_funnel
-  - title: phacking
-  - contents:
-    - phacking::phacking_meta
-    - phacking::rtma_cdf
-    - phacking::rtma_qqplot
-    - phacking::z_density
-    - phacking::money_priming_meta
-  - title: multibiasmeta
-  - contents:
-    - multibiasmeta::multibias_meta
-    - multibiasmeta::multibias_evalue
-    - multibiasmeta::meta_meat
-  - title: metabias
-  - contents:
-    - metabias
-    - new_metabias
-    - params
-    - robu_ci
+  bootswatch: flatly
