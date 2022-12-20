@@ -7,6 +7,14 @@
 #' @param ci_level Confidence level to use for the confidence interval (defaults
 #'   to 0.95).
 #'
+#' @examples
+#' # example model from robumeta::robu()
+#' HierModSm <- robumeta::robu(effectsize ~ binge + followup + sreport + age,
+#'                             data =  robumeta::hierdat, studynum = studyid,
+#'                             var.eff.size = var, modelweights = "HIER",
+#'                             small = TRUE)
+#' robu_ci(HierModSm)
+#'
 #' @export
 robu_ci <- function(robu_fit, ci_level = 0.95) {
   alpha <- 1 - ci_level

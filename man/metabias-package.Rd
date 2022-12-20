@@ -4,7 +4,7 @@
 \name{metabias-package}
 \alias{metabias-package}
 \alias{_PACKAGE}
-\title{metabias: Meta-analysis for within-study and/or across-study biases}
+\title{metabias: Meta-Analysis for Within-Study and/or Across-Study Biases}
 \description{
 Provides common components (classes, methods, documentation) for packages that conduct meta-analytic corrections and sensitivity analyses for within-study and/or across-study biases in meta-analysis. See the packages `PublicationBias`, `phacking`, and `multibiasmeta`.
 }
@@ -12,7 +12,6 @@ Provides common components (classes, methods, documentation) for packages that c
 Useful links:
 \itemize{
   \item \url{https://github.com/mikabr/metabias}
-  \item \url{http://mikabr.io/metabias/}
   \item Report bugs at \url{https://github.com/mikabr/metabias/issues}
 }
 

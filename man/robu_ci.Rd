@@ -16,3 +16,12 @@ to 0.95).}
 Add a confidence interval to the \code{reg_table} of a
 \link[robumeta:robu]{robumeta::robu} object.
 }
+\examples{
+# example model from robumeta::robu()
+HierModSm <- robumeta::robu(effectsize ~ binge + followup + sreport + age,
+                            data =  robumeta::hierdat, studynum = studyid,
+                            var.eff.size = var, modelweights = "HIER",
+                            small = TRUE)
+robu_ci(HierModSm)
+
+}

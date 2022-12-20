@@ -1,6 +1,6 @@
 Package: metabias
 Type: Package
-Title: Meta-analysis for within-study and/or across-study biases
+Title: Meta-Analysis for Within-Study and/or Across-Study Biases
 Description: Provides common components (classes, methods, documentation) for
   packages that conduct meta-analytic corrections and sensitivity analyses
   for within-study and/or across-study biases in meta-analysis. See the packages
@@ -11,8 +11,7 @@ Authors@R: c(
   person("Maya", "Mathur", email = "mmathur@stanford.edu", role = c("aut")))
 Maintainer: Mika Braginsky <mika.br@gmail.com>
 License: MIT + file LICENSE
-URL: https://github.com/mikabr/metabias,
-    http://mikabr.io/metabias/
+URL: https://github.com/mikabr/metabias
 BugReports: https://github.com/mikabr/metabias/issues
 Encoding: UTF-8
 LazyData: true
@@ -20,6 +19,8 @@ Depends:
   R (>= 4.1.0)
 Imports:
   Rdpack
+Suggests:
+  robumeta
 RoxygenNote: 7.2.0
 Roxygen: list(markdown = TRUE)
 RdMacros: Rdpack
