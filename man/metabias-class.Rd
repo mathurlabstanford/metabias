@@ -43,10 +43,10 @@ within-study or across-study biases, or (2) a sensitivity analysis for
 meta-analyses with respect to these biases. Examples of functions that
 return such objects include:
 \itemize{
-\item \code{\link[PublicationBias:pubbias_meta]{PublicationBias::pubbias_meta()}}
-\item \code{\link[PublicationBias:pubbias_svalue]{PublicationBias::pubbias_svalue()}}
-\item \code{\link[phacking:phacking_meta]{phacking::phacking_meta()}}
-\item \code{\link[multibiasmeta:multibias_meta]{multibiasmeta::multibias_meta()}}
-\item \code{\link[multibiasmeta:multibias_evalue]{multibiasmeta::multibias_evalue()}}
+\item \code{PublicationBias::pubbias_meta()}
+\item \code{PublicationBias::pubbias_svalue()}
+\item \code{phacking::phacking_meta()}
+\item \code{multibiasmeta::multibias_meta()}
+\item \code{multibiasmeta::multibias_evalue()}
 }
 }

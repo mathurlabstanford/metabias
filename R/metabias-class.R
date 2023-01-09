@@ -13,8 +13,8 @@
 #'   - [PublicationBias::pubbias_meta()]
 #'   - [PublicationBias::pubbias_svalue()]
 #'   - [phacking::phacking_meta()]
-#'   - [multibiasmeta::multibias_meta()]
-#'   - [multibiasmeta::multibias_evalue()]
+#'   - `multibiasmeta::multibias_meta()`
+#'   - `multibiasmeta::multibias_evalue()``
 #'
 #' @param data Dataframe containing data used to fit the model(s), with added
 #'   columns for any values computed during model fitting.
