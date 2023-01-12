@@ -4,7 +4,10 @@ Title: Meta-Analysis for Within-Study and/or Across-Study Biases
 Description: Provides common components (classes, methods, documentation) for
   packages that conduct meta-analytic corrections and sensitivity analyses
   for within-study and/or across-study biases in meta-analysis. See the packages
-  `PublicationBias`, `phacking`, and `multibiasmeta`.
+  'PublicationBias', 'phacking', and 'multibiasmeta'. These package implement
+  methods described in, respectively: Mathur & VanderWeele (2020)
+  <doi:10.1111/rssc.12440>; Mathur (2022) <doi:10.31219/osf.io/ezjsx>;
+  Mathur (2022) <doi:10.31219/osf.io/u7vcb>.
 Version: 0.1.0
 Authors@R: c(
   person("Mika", "Braginsky", email = "mika.br@gmail.com", role = c("aut", "cre")),
