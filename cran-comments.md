@@ -16,9 +16,8 @@ Maintainer: ‘Mika Braginsky <mika.br@gmail.com>’
 New submission
 
 Possibly misspelled words in DESCRIPTION:
-  PublicationBias (7:4)
-  multibiasmeta (7:39)
-  phacking (7:23)
+  Mathur (8:39, 9:29, 10:3)
+  VanderWeele (8:48)
 ```
   
 * This is a new package.
