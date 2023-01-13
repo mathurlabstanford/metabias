@@ -2,6 +2,7 @@
 #'
 #' @name metabias-class
 #' @rdname metabias-class
+#' @export
 #'
 #' @description A object of class `metabias` is the result of fitting one or
 #'   more models to a dataset with one row per study being meta-analyzed. These
@@ -14,7 +15,7 @@
 #'   - [PublicationBias::pubbias_svalue()]
 #'   - [phacking::phacking_meta()]
 #'   - `multibiasmeta::multibias_meta()`
-#'   - `multibiasmeta::multibias_evalue()``
+#'   - `multibiasmeta::multibias_evalue()`
 #'
 #' @param data Dataframe containing data used to fit the model(s), with added
 #'   columns for any values computed during model fitting.
@@ -23,7 +24,25 @@
 #' @param fits List of fitted objects (which have a class that depends on the
 #'   underlying fitting methods, e.g. [`robumeta::robu`] or [`rstan::stanfit`]).
 #'
-#' @export
+#' @return An object of class `metabias`, which consists of a list containing
+#'   the elements `data`, `values`, `stats`, `fits` (corresponding to the
+#'   arguments passed).
+#'
+#' @examples
+#' # example model from robumeta::robu()
+#' hier_mod <- robumeta::robu(effectsize ~ binge + followup + sreport + age,
+#'                            data = robumeta::hierdat, studynum = studyid,
+#'                            var.eff.size = var, modelweights = "HIER",
+#'                            small = TRUE)
+#'
+#' ci <- 0.95  # example set value
+#' hier_mb <- metabias(data = robumeta::hierdat,                 # data passed to model
+#'                     values = list(ci_level = ci),             # value used
+#'                     stats = robu_ci(hier_mod, ci_level = ci), # stats from model
+#'                     fits = list("robu" = hier_mod))           # model object
+#'
+#' hier_mb
+#' summary(hier_mb)
 metabias <- function(data = data.frame(), values = list(),
                      stats = data.frame(), fits = list()) {
   new_metabias(list(data = data, values = values, stats = stats, fits = fits))
@@ -31,7 +50,9 @@ metabias <- function(data = data.frame(), values = list(),
 
 #' Constructor for metabias S3 class
 #'
-#' @param x List with elements "data", "values", "stats", "fits"
+#' @rdname metabias-class
+#'
+#' @param x List with elements "data", "values", "stats", "fits".
 #'
 #' @export
 new_metabias <- function(x = list()) {

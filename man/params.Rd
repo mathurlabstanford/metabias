@@ -2,7 +2,7 @@
 % Please edit documentation in R/params.R
 \name{params}
 \alias{params}
-\title{Documentation for params common across metabias packages}
+\title{Documentation for params common across metabias packages.}
 \arguments{
 \item{yi}{A vector of point estimates to be meta-analyzed.}
 
@@ -41,5 +41,5 @@ Should be specified on the same scale as \code{yi} (e.g., if
 \code{yi} is on the log-RR scale, then \code{q} should be as well).}
 }
 \description{
-Documentation for params common across metabias packages
+Documentation for params common across metabias packages.
 }

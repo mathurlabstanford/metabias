@@ -12,16 +12,19 @@ robu_ci(robu_fit, ci_level = 0.95)
 \item{ci_level}{Confidence level to use for the confidence interval (defaults
 to 0.95).}
 }
+\value{
+A dataframe with the columns \code{estimate}, \code{se}, \code{ci_lower},
+\code{ci_upper}, \code{p_value}.
+}
 \description{
 Add a confidence interval to the \code{reg_table} of a
 \link[robumeta:robu]{robumeta::robu} object.
 }
 \examples{
 # example model from robumeta::robu()
-HierModSm <- robumeta::robu(effectsize ~ binge + followup + sreport + age,
-                            data =  robumeta::hierdat, studynum = studyid,
-                            var.eff.size = var, modelweights = "HIER",
-                            small = TRUE)
-robu_ci(HierModSm)
-
+hier_mod <- robumeta::robu(effectsize ~ binge + followup + sreport + age,
+                           data = robumeta::hierdat, studynum = studyid,
+                           var.eff.size = var, modelweights = "HIER",
+                           small = TRUE)
+robu_ci(hier_mod)
 }

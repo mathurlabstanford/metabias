@@ -3,7 +3,7 @@
 \name{metabias-class}
 \alias{metabias-class}
 \alias{metabias}
-\alias{print.metabias}
+\alias{new_metabias}
 \alias{summary.metabias}
 \title{metabias S3 class}
 \usage{
@@ -14,7 +14,7 @@ metabias(
   fits = list()
 )
 
-\method{print}{metabias}(x, ...)
+new_metabias(x = list())
 
 \method{summary}{metabias}(object, ...)
 }
@@ -29,11 +29,16 @@ columns for any values computed during model fitting.}
 \item{fits}{List of fitted objects (which have a class that depends on the
 underlying fitting methods, e.g. \code{\link[robumeta:robu]{robumeta::robu}} or \code{\link[rstan:stanfit-class]{rstan::stanfit}}).}
 
-\item{x}{Object of class \code{metabias}.}
-
-\item{...}{Not used.}
+\item{x}{List with elements "data", "values", "stats", "fits".}
 
 \item{object}{Object of class \code{metabias}.}
+
+\item{...}{Not used.}
+}
+\value{
+An object of class \code{metabias}, which consists of a list containing
+the elements \code{data}, \code{values}, \code{stats}, \code{fits} (corresponding to the
+arguments passed).
 }
 \description{
 A object of class \code{metabias} is the result of fitting one or
@@ -43,10 +48,26 @@ within-study or across-study biases, or (2) a sensitivity analysis for
 meta-analyses with respect to these biases. Examples of functions that
 return such objects include:
 \itemize{
-\item \code{PublicationBias::pubbias_meta()}
-\item \code{PublicationBias::pubbias_svalue()}
-\item \code{phacking::phacking_meta()}
+\item \code{\link[PublicationBias:pubbias_meta]{PublicationBias::pubbias_meta()}}
+\item \code{\link[PublicationBias:pubbias_svalue]{PublicationBias::pubbias_svalue()}}
+\item \code{\link[phacking:phacking_meta]{phacking::phacking_meta()}}
 \item \code{multibiasmeta::multibias_meta()}
 \item \code{multibiasmeta::multibias_evalue()}
 }
+}
+\examples{
+# example model from robumeta::robu()
+hier_mod <- robumeta::robu(effectsize ~ binge + followup + sreport + age,
+                           data = robumeta::hierdat, studynum = studyid,
+                           var.eff.size = var, modelweights = "HIER",
+                           small = TRUE)
+
+ci <- 0.95  # example set value
+hier_mb <- metabias(data = robumeta::hierdat,                 # data passed to model
+                    values = list(ci_level = ci),             # value used
+                    stats = robu_ci(hier_mod, ci_level = ci), # stats from model
+                    fits = list("robu" = hier_mod))           # model object
+
+hier_mb
+summary(hier_mb)
 }

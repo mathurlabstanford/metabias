@@ -1,5 +1,5 @@
 #' @name params
-#' @title Documentation for params common across metabias packages
+#' @title Documentation for params common across metabias packages.
 #'
 #' @param yi A vector of point estimates to be meta-analyzed.
 #' @param vi A vector of estimated variances (i.e., squared standard errors) for
