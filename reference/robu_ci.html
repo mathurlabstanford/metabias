@@ -65,22 +65,28 @@ robumeta::robu object."><!-- mathjax --><script src="https://cdnjs.cloudflare.co
 to 0.95).</p></dd>
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>A dataframe with the columns <code>estimate</code>, <code>se</code>, <code>ci_lower</code>,
+<code>ci_upper</code>, <code>p_value</code>.</p>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># example model from robumeta::robu()</span></span></span>
-<span class="r-in"><span><span class="va">HierModSm</span> <span class="op">&lt;-</span> <span class="fu">robumeta</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/robumeta/man/robu.html" class="external-link">robu</a></span><span class="op">(</span><span class="va">effectsize</span> <span class="op">~</span> <span class="va">binge</span> <span class="op">+</span> <span class="va">followup</span> <span class="op">+</span> <span class="va">sreport</span> <span class="op">+</span> <span class="va">age</span>,</span></span>
-<span class="r-in"><span>                            data <span class="op">=</span>  <span class="fu">robumeta</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/robumeta/man/hierdat.html" class="external-link">hierdat</a></span>, studynum <span class="op">=</span> <span class="va">studyid</span>,</span></span>
-<span class="r-in"><span>                            var.eff.size <span class="op">=</span> <span class="va">var</span>, modelweights <span class="op">=</span> <span class="st">"HIER"</span>,</span></span>
-<span class="r-in"><span>                            small <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">robu_ci</span><span class="op">(</span><span class="va">HierModSm</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      estimate           se     ci_lower    ci_upper    p_value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  0.39695130 0.6580061223 -1.675340360 2.469242958 0.58816304</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  0.45158407 0.1016414122  0.156275299 0.746892833 0.01438447</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.00133090 0.0007225729 -0.001731258 0.004393058 0.20481776</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.53875845 0.1433975062  0.153235110 0.924281796 0.01696253</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 -0.04371413 0.0378744671 -0.172347635 0.084919375 0.34044554</span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">hier_mod</span> <span class="op">&lt;-</span> <span class="fu">robumeta</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/robumeta/man/robu.html" class="external-link">robu</a></span><span class="op">(</span><span class="va">effectsize</span> <span class="op">~</span> <span class="va">binge</span> <span class="op">+</span> <span class="va">followup</span> <span class="op">+</span> <span class="va">sreport</span> <span class="op">+</span> <span class="va">age</span>,</span></span>
+<span class="r-in"><span>                           data <span class="op">=</span> <span class="fu">robumeta</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/robumeta/man/hierdat.html" class="external-link">hierdat</a></span>, studynum <span class="op">=</span> <span class="va">studyid</span>,</span></span>
+<span class="r-in"><span>                           var.eff.size <span class="op">=</span> <span class="va">var</span>, modelweights <span class="op">=</span> <span class="st">"HIER"</span>,</span></span>
+<span class="r-in"><span>                           small <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">robu_ci</span><span class="op">(</span><span class="va">hier_mod</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          param    estimate           se     ci_lower    ci_upper    p_value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 X.Intercept.  0.39695130 0.6580061223 -1.675340360 2.469242958 0.58816304</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2        binge  0.45158407 0.1016414122  0.156275299 0.746892833 0.01438447</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     followup  0.00133090 0.0007225729 -0.001731258 0.004393058 0.20481776</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      sreport  0.53875845 0.1433975062  0.153235110 0.924281796 0.01696253</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5          age -0.04371413 0.0378744671 -0.172347635 0.084919375 0.34044554</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

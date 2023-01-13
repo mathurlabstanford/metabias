@@ -88,8 +88,7 @@ return such objects include:</p><ul><li><p><code>PublicationBias::pubbias_meta()
 <span>  fits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for metabias</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">new_metabias</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for metabias</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
@@ -116,18 +115,158 @@ underlying fitting methods, e.g. <code><a href="https://rdrr.io/pkg/robumeta/man
 
 
 <dt>x</dt>
+<dd><p>List with elements "data", "values", "stats", "fits".</p></dd>
+
+
+<dt>object</dt>
 <dd><p>Object of class <code>metabias</code>.</p></dd>
 
 
 <dt>...</dt>
 <dd><p>Not used.</p></dd>
 
-
-<dt>object</dt>
-<dd><p>Object of class <code>metabias</code>.</p></dd>
-
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
 
+<p>An object of class <code>metabias</code>, which consists of a list containing
+the elements <code>data</code>, <code>values</code>, <code>stats</code>, <code>fits</code> (corresponding to the
+arguments passed).</p>
+    </div>
+
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># example model from robumeta::robu()</span></span></span>
+<span class="r-in"><span><span class="va">hier_mod</span> <span class="op">&lt;-</span> <span class="fu">robumeta</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/robumeta/man/robu.html" class="external-link">robu</a></span><span class="op">(</span><span class="va">effectsize</span> <span class="op">~</span> <span class="va">binge</span> <span class="op">+</span> <span class="va">followup</span> <span class="op">+</span> <span class="va">sreport</span> <span class="op">+</span> <span class="va">age</span>,</span></span>
+<span class="r-in"><span>                           data <span class="op">=</span> <span class="fu">robumeta</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/robumeta/man/hierdat.html" class="external-link">hierdat</a></span>, studynum <span class="op">=</span> <span class="va">studyid</span>,</span></span>
+<span class="r-in"><span>                           var.eff.size <span class="op">=</span> <span class="va">var</span>, modelweights <span class="op">=</span> <span class="st">"HIER"</span>,</span></span>
+<span class="r-in"><span>                           small <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">ci</span> <span class="op">&lt;-</span> <span class="fl">0.95</span>  <span class="co"># example set value</span></span></span>
+<span class="r-in"><span><span class="va">hier_mb</span> <span class="op">&lt;-</span> <span class="fu">metabias</span><span class="op">(</span>data <span class="op">=</span> <span class="fu">robumeta</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/robumeta/man/hierdat.html" class="external-link">hierdat</a></span>,                 <span class="co"># data passed to model</span></span></span>
+<span class="r-in"><span>                    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ci_level <span class="op">=</span> <span class="va">ci</span><span class="op">)</span>,             <span class="co"># value used</span></span></span>
+<span class="r-in"><span>                    stats <span class="op">=</span> <span class="fu"><a href="robu_ci.html">robu_ci</a></span><span class="op">(</span><span class="va">hier_mod</span>, ci_level <span class="op">=</span> <span class="va">ci</span><span class="op">)</span>, <span class="co"># stats from model</span></span></span>
+<span class="r-in"><span>                    fits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"robu"</span> <span class="op">=</span> <span class="va">hier_mod</span><span class="op">)</span><span class="op">)</span>           <span class="co"># model object</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">hier_mb</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    esid studyid   effectsize         var binge sreport males   age  followup</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  5035       1  0.950826585 0.139126107     1       1  90.0 16.00  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    15       1 -1.651862741 0.067085341     0       0  72.0 14.00  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3028       1  0.258915693 0.060215075     0       1  80.0 15.90  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  4086       1  0.190914467 0.036034293     0       0  82.0 15.30  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  1297       2 -0.247202173 0.046234448     0       0  76.0 16.00  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  3721       2  0.301957160 0.020227946     0       1  79.0 16.00  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2768       2  0.242364183 0.033295847     0       1  66.0 16.90  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2841       2  0.269546747 0.009444829     0       1  82.0 16.00  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2409       3  0.387382537 0.036139041     0       1  70.0 16.00  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 4959       3 -0.398471236 0.032931905     0       0  75.0 15.50  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 1185       4  0.452842206 0.051564503     0       1  79.0 15.70 208.57143</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2522       4 -0.271548301 0.057856761     0       0  83.0 15.20  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13  913       5 -0.070886418 0.067858674     0       1  41.0 18.45  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14    5       5  0.816636622 0.050794918     1       1  65.0 18.40 104.57143</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 4376       5  0.525371492 0.150762171     1       1  66.0 19.13  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 5505       5  0.317641258 0.039656453     1       1  89.5 17.06  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 3043       5  0.334007829 0.043146599     1       1  51.0 18.00  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 4342       5 -0.134081945 0.067114107     0       0  85.0 19.10  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 1417       5  0.000000000 0.024250438     1       1  35.0 19.30  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 1068       6 -0.465214431 0.161737770     0       0  77.0 16.00 104.57143</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21  710       6  0.362018377 0.072689950     0       0  82.0 15.40  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 3528       7  1.176043868 0.090221912     1       1  62.0 15.40 104.57143</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23   13       7  0.566977739 0.099065043     0       1  76.2 16.05  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 4068       7  0.282816976 0.022944927     0       0  56.0 17.00 208.57143</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 5526       8  0.004153749 0.050125420     0       0  67.0 15.90  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 3442       8  0.096900612 0.057789702     0       0  71.0 15.40  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27  356       8 -0.020446168 0.176932156     0       1  60.0 15.40  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28  576       9  1.091028214 0.176737353     1       1  77.0 16.20  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29  530       9  1.091028214 0.176737353     1       1  69.0 16.90  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30  491       9  0.724698544 0.163945928     1       1  50.0 16.00  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 1087       9  0.829267025 0.072397366     1       1  50.0 16.00  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32  545       9  1.270201564 0.184873298     1       1  62.0 17.10  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 1237      10  1.039815664 0.075676806     1       1  80.0 15.43  68.57143</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 1793      11 -0.211120903 0.108789451     0       0  78.0 17.00  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 1733      12  0.149576589 0.025931364     0       1  64.0 19.00  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 2099      12  0.000000000 0.061553031     1       1  41.0 15.14  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37  509      13  0.744848609 0.063855089     0       0  82.0 15.80  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 3859      13 -0.034580503 0.037754927     0       1  67.4 17.16  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 2925      14  0.844063163 0.085446268     1       1  80.0 15.95  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 4265      15  0.347013086 0.019760976     0       0  84.0 15.90 313.71429</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 3786      15  0.157813311 0.089209534     0       1  72.0 20.00  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42  900      15 -0.028918153 0.047732249     0       1  81.0 16.00  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 1627      15  0.743935704 0.118523963     0       1  71.0 16.61  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 4283      15 -0.105550244 0.211404294     0       0  50.0 15.40  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45  938      15  1.205112219 0.089183509     1       1  77.0 15.40  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 3618      15  0.176503450 0.065062061     0       1  96.0 20.00  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 3297      15  0.438628316 0.017596249     0       1  86.0 16.27  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48 5278      15  0.277786195 0.045071550     1       0  57.0 15.51 112.00000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49 4730      15 -1.036182284 0.021280514     0       0  54.0 15.40 200.57143</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50 5008      15 -0.284874618 0.020202883     0       0 100.0 17.03  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51 5291      15  0.441509426 0.097775139     0       1  47.6 16.00  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 3117      15 -0.029882502 0.045091134     0       1  65.0 16.50  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53  195      15 -0.134236827 0.027541475     0       0  54.7 17.40  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54 1073      15  0.077441879 0.043696571     0       1  57.0 15.74  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55 3918      15  0.445514768 0.102731667     0       1   0.0 19.20  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56  885      15  0.367331475 0.045752995     0       0  72.0 16.10 313.71429</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57 3698      15  0.431943923 0.128405437     0       1  76.7 16.40  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58  947      15  0.137708470 0.013434974     1       1  46.0 18.00  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59  402      15  1.767375469 0.214831442     1       1   0.0 16.06  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60  304      15  1.315015078 0.194841713     1       1  62.0 16.00  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61 4119      15  0.481691241 0.106149293     1       1  48.0 19.00  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62 4052      15 -0.074442938 0.078014299     0       1  35.0 18.99  17.14286</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63 2897      15 -0.862986565 0.014297741     0       0  69.8 15.48 104.57143</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64  144      15  1.618591547 0.265495986     1       1  50.0 16.00  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65 4404      15  0.211723000 0.074897826     1       1  46.0 19.60  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66 3904      15  0.454529226 0.024869366     0       1  76.0 16.00  51.42857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67 4235      15  0.216540292 0.161194205     0       1  60.0 19.70  34.28571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68 5272      15 -0.413202494 0.085111827     0       0  87.5 16.88  16.00000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $values</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $values$ci_level</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.95</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $stats</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          param    estimate           se     ci_lower    ci_upper    p_value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 X.Intercept.  0.39695130 0.6580061223 -1.675340360 2.469242958 0.58816304</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2        binge  0.45158407 0.1016414122  0.156275299 0.746892833 0.01438447</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     followup  0.00133090 0.0007225729 -0.001731258 0.004393058 0.20481776</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      sreport  0.53875845 0.1433975062  0.153235110 0.924281796 0.01696253</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5          age -0.04371413 0.0378744671 -0.172347635 0.084919375 0.34044554</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $fits</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $fits$robu</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> RVE: Hierarchical Effects Model with Small-Sample Corrections </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model: effectsize ~ binge + followup + sreport + age </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of clusters = 15 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of outcomes = 68 (min = 1 , mean = 4.53 , median = 2 , max = 29 )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Omega.sq = 0.1086551 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Tau.sq = 0.02362071 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                Estimate   StdErr t-value  dfs P(|t|&gt;) 95% CI.L 95% CI.U Sig</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 X.Intercept.  0.39695 0.658006   0.603 3.06  0.5882 -1.67534  2.46924    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2        binge  0.45158 0.101641   4.443 3.59  0.0144  0.15628  0.74689  **</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     followup  0.00133 0.000723   1.842 2.03  0.2048 -0.00173  0.00439    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      sreport  0.53876 0.143398   3.757 4.36  0.0170  0.15324  0.92428  **</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5          age -0.04371 0.037874  -1.154 2.69  0.3404 -0.17235  0.08492    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes: &lt; .01 *** &lt; .05 ** &lt; .10 *</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Note: If df &lt; 4, do not trust the results</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "metabias" "list"    </span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">hier_mb</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          param    estimate           se     ci_lower    ci_upper    p_value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 X.Intercept.  0.39695130 0.6580061223 -1.675340360 2.469242958 0.58816304</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2        binge  0.45158407 0.1016414122  0.156275299 0.746892833 0.01438447</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     followup  0.00133090 0.0007225729 -0.001731258 0.004393058 0.20481776</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      sreport  0.53875845 0.1433975062  0.153235110 0.924281796 0.01696253</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5          age -0.04371413 0.0378744671 -0.172347635 0.084919375 0.34044554</span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
