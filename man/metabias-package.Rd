@@ -6,7 +6,7 @@
 \alias{_PACKAGE}
 \title{metabias: Meta-Analysis for Within-Study and/or Across-Study Biases}
 \description{
-Provides common components (classes, methods, documentation) for packages that conduct meta-analytic corrections and sensitivity analyses for within-study and/or across-study biases in meta-analysis. See the packages 'PublicationBias', 'phacking', and 'multibiasmeta'. These package implement methods described in, respectively: Mathur & VanderWeele (2020) \doi{10.1111/rssc.12440}; Mathur (2022) \doi{10.31219/osf.io/ezjsx}; Mathur (2022) \doi{10.31219/osf.io/u7vcb}.
+Provides common components (classes, methods, documentation) for packages that conduct meta-analytic corrections and sensitivity analyses for within-study and/or across-study biases in meta-analysis. See the packages 'PublicationBias', 'phacking', and 'multibiasmeta'. These package implement methods described in, respectively: Mathur & VanderWeele (2020) \doi{10.31219/osf.io/s9dp6}; Mathur (2022) \doi{10.31219/osf.io/ezjsx}; Mathur (2022) \doi{10.31219/osf.io/u7vcb}.
 }
 \seealso{
 Useful links:

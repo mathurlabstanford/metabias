@@ -11,9 +11,9 @@
 #'   meta-analyses with respect to these biases. Examples of functions that
 #'   return such objects include:
 #'
-#'   - [PublicationBias::pubbias_meta()]
-#'   - [PublicationBias::pubbias_svalue()]
-#'   - [phacking::phacking_meta()]
+#'   - `PublicationBias::pubbias_meta()`
+#'   - `PublicationBias::pubbias_svalue()`
+#'   - `phacking::phacking_meta()`
 #'   - `multibiasmeta::multibias_meta()`
 #'   - `multibiasmeta::multibias_evalue()`
 #'
