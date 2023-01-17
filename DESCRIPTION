@@ -23,7 +23,8 @@ Depends:
 Imports:
   Rdpack
 Suggests:
-  robumeta
+  robumeta,
+  rstan
 RoxygenNote: 7.2.0
 Roxygen: list(markdown = TRUE)
 RdMacros: Rdpack
