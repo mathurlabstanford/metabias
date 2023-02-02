@@ -11,8 +11,9 @@ Provides common components (classes, methods, documentation) for packages that c
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/mikabr/metabias}
-  \item Report bugs at \url{https://github.com/mikabr/metabias/issues}
+  \item \url{https://github.com/mathurlabstanford/metabias}
+  \item \url{https://mathurlabstanford.github.io/metabias}
+  \item Report bugs at \url{https://github.com/mathurlabstanford/metabias/issues}
 }
 
 }
