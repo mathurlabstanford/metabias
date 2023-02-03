@@ -2,8 +2,8 @@ pandoc: 2.19.2
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles: {}
-last_built: 2023-01-18T18:04Z
+last_built: 2023-02-03T00:04Z
 urls:
-  reference: http://mikabr.io/metabias/reference
-  article: http://mikabr.io/metabias/articles
+  reference: http://mathurlabstanford.github.io/metabias/reference
+  article: http://mathurlabstanford.github.io/metabias/articles
 
