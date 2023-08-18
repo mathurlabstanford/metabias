@@ -1,24 +1,23 @@
 ## Test environments
-- macOS 12.2.1, R 4.2.1
-- Windows Server 2022, R-devel (on R-hub)
-- Ubuntu Linux 20.04.1 LTS, R-release (on R-hub)
-- Fedora Linux, R-devel (on R-hub)
 
+The package was tested with `R CMD check --as-cran` on the following platforms:
+
+* Ubuntu Linux GCC (oldrel, release, devel),
+* Windows x86_64  (oldrel, release, devel),
+* MacOS (release).
 
 ## R CMD check results
 
-0 errors | 0 warnings | 2 notes
+
+There were no ERRORs or WARNINGs. The following NOTE was displayed:
 
 ```
-* checking CRAN incoming feasibility ... NOTE
-Maintainer: 'Mika Braginsky <mika.br@gmail.com>'
+Maintainer: ‘Peter Solymos <peter@analythium.io>’
 
-New submission
-
-Possibly misspelled words in DESCRIPTION:
-  Mathur (8:39, 9:29, 10:3)
-  VanderWeele (8:48)
+New maintainer:
+  Peter Solymos <peter@analythium.io>
+Old maintainer(s):
+  Mika Braginsky <mika.br@gmail.com>
 ```
-  
-* This is a new package.
-* These are not misspellings.
+
+The package has new maintainer: Peter Solymos.
