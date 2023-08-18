@@ -12,16 +12,17 @@ Provides common components (classes, methods, documentation) for packages that c
 Useful links:
 \itemize{
   \item \url{https://github.com/mathurlabstanford/metabias}
-  \item \url{https://mathurlabstanford.github.io/metabias}
+  \item \url{https://mathurlabstanford.github.io/metabias/}
   \item Report bugs at \url{https://github.com/mathurlabstanford/metabias/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Mika Braginsky \email{mika.br@gmail.com}
+\strong{Maintainer}: Peter Solymos \email{peter@analythium.io} (\href{https://orcid.org/0000-0001-7337-1740}{ORCID}) [contributor]
 
 Authors:
 \itemize{
+  \item Mika Braginsky \email{mika.br@gmail.com}
   \item Maya Mathur \email{mmathur@stanford.edu}
 }
 
