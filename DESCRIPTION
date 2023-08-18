@@ -8,14 +8,15 @@ Description: Provides common components (classes, methods, documentation) for
   methods described in, respectively: Mathur & VanderWeele (2020)
   <doi:10.31219/osf.io/s9dp6>; Mathur (2022) <doi:10.31219/osf.io/ezjsx>;
   Mathur (2022) <doi:10.31219/osf.io/u7vcb>.
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
-  person("Mika", "Braginsky", email = "mika.br@gmail.com", role = c("aut", "cre")),
-  person("Maya", "Mathur", email = "mmathur@stanford.edu", role = c("aut")))
-Maintainer: Mika Braginsky <mika.br@gmail.com>
+  person("Mika", "Braginsky", email = "mika.br@gmail.com", role = c("aut")),
+  person("Maya", "Mathur", email = "mmathur@stanford.edu", role = c("aut")),
+  person("Peter", "Solymos", email = "peter@analythium.io", role = c("cre", "ctb"), comment = c(ORCID = "0000-0001-7337-1740"))
+  )
 License: MIT + file LICENSE
 URL: https://github.com/mathurlabstanford/metabias,
-     https://mathurlabstanford.github.io/metabias
+     https://mathurlabstanford.github.io/metabias/
 BugReports: https://github.com/mathurlabstanford/metabias/issues
 Encoding: UTF-8
 LazyData: true
@@ -26,6 +27,6 @@ Imports:
 Suggests:
   robumeta,
   rstan
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
 RdMacros: Rdpack
